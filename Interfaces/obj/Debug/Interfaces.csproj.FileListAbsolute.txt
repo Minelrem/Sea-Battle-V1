@@ -1,0 +1,7 @@
+C:\Users\User\Desktop\SeaBattle\Current\Interfaces\bin\Debug\Interfaces.dll
+C:\Users\User\Desktop\SeaBattle\Current\Interfaces\bin\Debug\Interfaces.pdb
+C:\Users\User\Desktop\SeaBattle\Current\Interfaces\bin\Debug\SeaBattle.Api.Model.dll
+C:\Users\User\Desktop\SeaBattle\Current\Interfaces\bin\Debug\SeaBattle.Api.Model.pdb
+C:\Users\User\Desktop\SeaBattle\Current\Interfaces\obj\Debug\Interfaces.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\SeaBattle\Current\Interfaces\obj\Debug\Interfaces.dll
+C:\Users\User\Desktop\SeaBattle\Current\Interfaces\obj\Debug\Interfaces.pdb

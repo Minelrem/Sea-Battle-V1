@@ -7,3 +7,15 @@ C:\Users\User\Desktop\SeaBattle\SeaBattle.Data\bin\Debug\EntityFramework.xml
 C:\Users\User\Desktop\SeaBattle\SeaBattle.Data\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\User\Desktop\SeaBattle\SeaBattle.Data\obj\Debug\SeaBattle.Data.dll
 C:\Users\User\Desktop\SeaBattle\SeaBattle.Data\obj\Debug\SeaBattle.Data.pdb
+C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Data\bin\Debug\SeaBattle.Data.dll.config
+C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Data\bin\Debug\SeaBattle.Data.dll
+C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Data\bin\Debug\SeaBattle.Data.pdb
+C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Data\bin\Debug\EntityFramework.dll
+C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Data\bin\Debug\EntityFramework.xml
+C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Data\obj\Debug\SeaBattle.Data.Migrations.InitialCreate.resources
+C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Data\obj\Debug\SeaBattle.Data.Migrations.AccountActivationColumn.resources
+C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Data\obj\Debug\SeaBattle.Data.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Data\obj\Debug\SeaBattle.Data.dll
+C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Data\obj\Debug\SeaBattle.Data.pdb

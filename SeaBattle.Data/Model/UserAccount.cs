@@ -16,5 +16,8 @@ namespace SeaBattle.Data.Model
 
         [Required]
         public string Salt { get; set; }
+
+        [Required]
+        public bool IsActivated { get; set; }
     }
 }

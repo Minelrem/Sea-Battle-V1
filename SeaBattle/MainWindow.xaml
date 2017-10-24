@@ -7,7 +7,8 @@
         xmlns:Controls="clr-namespace:SeaBattle.Controls" x:Class="SeaBattle.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="685"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />

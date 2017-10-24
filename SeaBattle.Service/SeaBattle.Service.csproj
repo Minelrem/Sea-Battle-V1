@@ -39,6 +39,9 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Helpers.Crypto, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Web.Helpers.Crypto.3.2.3\lib\net40\System.Web.Helpers.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,9 +52,10 @@
   <ItemGroup>
     <Compile Include="Base\Base.cs" />
     <Compile Include="BattlefieldService.cs" />
+    <Compile Include="MailService.cs" />
+    <Compile Include="Mapping\Mapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitOfWork\UnitOfWork.cs" />
-    <Compile Include="UserAccountService.cs" />
     <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup />
@@ -60,6 +64,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{83caa363-293f-48bc-b2f6-9cc473a2efa9}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SeaBattle.Api.Model\SeaBattle.Api.Model.csproj">
       <Project>{2fac6b15-4163-4155-a179-9c1247c992e7}</Project>
       <Name>SeaBattle.Api.Model</Name>

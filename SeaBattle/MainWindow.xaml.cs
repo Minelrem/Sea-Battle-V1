@@ -16,6 +16,7 @@ using System.Xml;
 using SeaBattle.Controls; 
 using System.Xml.Linq;
 using SeaBattle.Service;
+using SeaBattle.Login;
 
 namespace SeaBattle
 {
@@ -24,11 +25,19 @@ namespace SeaBattle
     /// </summary>
     public partial class MainWindow : Window
     {
- 
+
 
         public MainWindow()
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            
+        }
+  
+        private void LoginForm_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!((LoginWindow)sender).IsSucces)
+                Close();
+             
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -75,5 +84,14 @@ namespace SeaBattle
                 cell.State = (CellState)tmp.Item3;
             }
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoginWindow loginForm = new LoginWindow();
+
+            loginForm.Closing += LoginForm_Closing; 
+            loginForm.ShowDialog();
+          
+         }
     }
 }

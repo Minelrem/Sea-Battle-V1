@@ -18,8 +18,10 @@ C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Service\bin\Debug\SeaBattle.Se
 C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Service\bin\Debug\SeaBattle.Service.pdb
 C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Service\bin\Debug\EntityFramework.dll
 C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Service\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Service\bin\Debug\Interfaces.dll
 C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Service\bin\Debug\SeaBattle.Api.Model.dll
 C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Service\bin\Debug\SeaBattle.Data.dll
+C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Service\bin\Debug\Interfaces.pdb
 C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Service\bin\Debug\SeaBattle.Api.Model.pdb
 C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Service\bin\Debug\SeaBattle.Data.pdb
 C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Service\bin\Debug\SeaBattle.Data.dll.config
@@ -28,3 +30,5 @@ C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Service\bin\Debug\EntityFramew
 C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Service\obj\Debug\SeaBattle.Service.csprojResolveAssemblyReference.cache
 C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Service\obj\Debug\SeaBattle.Service.dll
 C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Service\obj\Debug\SeaBattle.Service.pdb
+C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Service\bin\Debug\System.Web.Helpers.Crypto.dll
+C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Service\bin\Debug\System.Web.Helpers.Crypto.pdb

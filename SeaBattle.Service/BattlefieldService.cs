@@ -1,4 +1,5 @@
-﻿using SeaBattle.Data.Context;
+﻿using Interfaces;
+using SeaBattle.Data.Context;
 using SeaBattle.Data.Model;
 using System;
 using System.Collections.Generic;
@@ -8,9 +9,10 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 
+
 namespace SeaBattle.Service
 {
-    public class BattlefieldService : Base
+    public class BattlefieldService : Base, IBattlefield
     {
 
         public Battlefield Current { get; private set; }

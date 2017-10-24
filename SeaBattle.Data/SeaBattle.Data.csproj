@@ -48,6 +48,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\SeaBattleContext.cs" />
+    <Compile Include="Migrations\201710171808502_InitialCreate.cs" />
+    <Compile Include="Migrations\201710171808502_InitialCreate.Designer.cs">
+      <DependentUpon>201710171808502_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710231616318_AccountActivationColumn.cs" />
+    <Compile Include="Migrations\201710231616318_AccountActivationColumn.Designer.cs">
+      <DependentUpon>201710231616318_AccountActivationColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Battlefield.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\UserAccount.cs" />
@@ -57,6 +66,13 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201710171808502_InitialCreate.resx">
+      <DependentUpon>201710171808502_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710231616318_AccountActivationColumn.resx">
+      <DependentUpon>201710231616318_AccountActivationColumn.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

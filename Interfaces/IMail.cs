@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SeaBattle.Api.Model.Model
+namespace Interfaces
 {
-    public class BattlefieldModel
+    public interface IMail
     {
-
-        //int 
-
+        void SendMail(string mail);
     }
 }
