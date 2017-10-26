@@ -13,7 +13,7 @@ namespace SeaBattle.Controls
         private CellState _state;
         private int _x;
         private int _y;
-        private Field _field;
+        public Field _field;
 
         public int X { get => _x; set => _x = value; }
         public int Y { get => _y; set => _y = value; }
@@ -29,19 +29,24 @@ namespace SeaBattle.Controls
 
         private void Grid_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (!_field.IsEnemy) return;
-            ;
+            if (!_field.IsEnemy)   return; 
+            
             MyGrid.Background = Brushes.Aqua;
         }
 
         private void MyGrid_OnMouseLeave(object sender, MouseEventArgs e)
         {
             if (!_field.IsEnemy) return;
+
+            if (_field.isActive)
+                State = CellState.Choosen;
+
             MyGrid.Background = GetColor();
         }
 
         private void MyGrid_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            
             if (!_field.IsEnemy) return;
 
             if (_state == CellState.Ship)
@@ -49,6 +54,11 @@ namespace SeaBattle.Controls
             else if (_state != CellState.Damage)
                 _state = CellState.Missed;
 
+            MyGrid.Background = GetColor();
+        }
+
+        public void SetBackground()
+        {
             MyGrid.Background = GetColor();
         }
 
@@ -64,9 +74,16 @@ namespace SeaBattle.Controls
                     return Brushes.Blue;
                 case CellState.Ship:
                     return Brushes.Blue;
+                case CellState.Choosen:
+                    return Brushes.Goldenrod;
                 default:
                     return Brushes.Blue;
             }
+        }
+
+        private void UserControl_MouseEnter(object sender, MouseEventArgs e)
+        {
+
         }
     }
 
@@ -75,6 +92,7 @@ namespace SeaBattle.Controls
         None = 0,
         Ship = 1,
         Damage = 2,
-        Missed = 3
+        Missed = 3,
+        Choosen = 4
     }
 }

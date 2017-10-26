@@ -10,5 +10,6 @@ namespace Interfaces
     {
         void SaveToXML(List<Tuple<int, int, int>> tmp, int size);
         Task<List<Tuple<int, int, int>>> LoadFromXML();
+        bool CreateShip(int deckNum);
     }
 }

@@ -48,7 +48,7 @@ namespace SeaBattle.Registration
                 }
                 else
                 {
-                    UnitOfWork.Instance.MailService.SendMail(mailTbt.Text);
+                    //UnitOfWork.Instance.MailService.SendMail(mailTbt.Text);
                     Close();
                 }
             }

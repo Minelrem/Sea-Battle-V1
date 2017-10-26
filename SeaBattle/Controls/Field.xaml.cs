@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using SeaBattle.Controls.ShipUnitControl;
+using SeaBattle.Service;
+using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace SeaBattle.Controls
@@ -10,15 +13,27 @@ namespace SeaBattle.Controls
     {
         public static readonly DependencyProperty EnemyDependencyProperty = DependencyProperty.Register("IsEnemy", typeof(bool), typeof(Field));
 
+
+        private Cell startCell;
+
+        private Cell endCell;
+
+        private List<Cell> choosen;
+
+        public bool isActive;
+
         private Cell[,] _cells;
         private int _size = 10;
+
 
         public Cell[,] Cells => _cells;
         public bool IsEnemy
         {
-            get => (bool) GetValue(EnemyDependencyProperty);
+            get => (bool)GetValue(EnemyDependencyProperty);
             set => SetValue(EnemyDependencyProperty, value);
         }
+
+
         public int Size => _size;
 
         public Cell this[int i, int j] => _cells[i, j];
@@ -96,5 +111,101 @@ namespace SeaBattle.Controls
                 ColumnDefinitions.Add(colDef);
             }
         }
+
+        private void Grid_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            foreach (Cell cell in Cells)
+            {
+                if (cell.State == CellState.Missed && !isActive)
+                {
+                    choosen = new List<Cell>();
+                    cell.State = CellState.Choosen;
+                    startCell = cell;
+                    isActive = true;
+                    return;
+                }
+                else if (cell.State == CellState.Missed && isActive)
+                {
+
+                    endCell = cell;
+                    cell.State = CellState.Choosen;
+                    isActive = false;
+
+                    SetChoosen();
+
+                    CheckChoosen();
+
+                    CreateShip();
+
+                    return;
+
+                }
+            }
+        }
+
+        private void SetChoosen()
+        {
+            foreach (Cell markedCell in Cells)
+                if (markedCell.State == CellState.Choosen)
+                    choosen.Add(markedCell);
+        }
+
+        private void CheckChoosen()
+        {
+
+            bool upDown = false, rghtLft = false;
+
+            if (((startCell.X > endCell.X) || (startCell.X < endCell.X)) && endCell.Y == startCell.Y)
+                rghtLft = true;
+            else if (((endCell.Y > startCell.Y) || (endCell.Y < startCell.Y)) && endCell.X == startCell.X)
+                upDown = true;
+
+
+            if (!upDown && !rghtLft)
+            {
+                ClearChoosen();
+
+                return;
+            }
+
+            foreach (Cell markedCell in choosen)
+            {
+                if (rghtLft == true && markedCell.Y != startCell.Y && markedCell.State == CellState.Choosen)
+                    ClearChoosen();
+                else if (upDown == true && markedCell.X != startCell.X && markedCell.State == CellState.Choosen)
+                    ClearChoosen();
+            }
+        }
+
+        private void ClearChoosen()
+        {
+            foreach (Cell choosenCell in Cells)
+                if (choosenCell.State == CellState.Choosen)
+                {
+                    choosenCell.State = CellState.None;
+
+                    choosenCell.SetBackground();
+                }
+        }
+
+        private void CreateShip()
+        {
+            int _deckNum = choosen.Count;
+
+            if (UnitOfWork.Instance.BattlefieldService.CreateShip(_deckNum))
+            {
+                Ship ship = new Ship();
+                RefreshField();
+            }
+            else
+                ClearChoosen();
+
+        }
+
+        private void RefreshField()
+        {
+
+        }
+
     }
 }

@@ -5,6 +5,6 @@ C:\Users\User\Desktop\SeaBattle\SeaBattle.Api.Model\obj\Debug\SeaBattle.Api.Mode
 C:\Users\User\Desktop\SeaBattle\SeaBattle.Api.Model\obj\Debug\SeaBattle.Api.Model.pdb
 C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Api.Model\bin\Debug\SeaBattle.Api.Model.dll
 C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Api.Model\bin\Debug\SeaBattle.Api.Model.pdb
+C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Api.Model\obj\Debug\SeaBattle.Api.Model.csprojResolveAssemblyReference.cache
 C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Api.Model\obj\Debug\SeaBattle.Api.Model.dll
 C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Api.Model\obj\Debug\SeaBattle.Api.Model.pdb
-C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Api.Model\obj\Debug\SeaBattle.Api.Model.csprojResolveAssemblyReference.cache

@@ -30,7 +30,6 @@ namespace SeaBattle
         public MainWindow()
         {
             InitializeComponent();
-            
         }
   
         private void LoginForm_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -93,5 +92,17 @@ namespace SeaBattle
             loginForm.ShowDialog();
           
          }
+
+        private void EnemyField_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+           
+            
+
+        }
+
+        private void EnemyField_MouseMove(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

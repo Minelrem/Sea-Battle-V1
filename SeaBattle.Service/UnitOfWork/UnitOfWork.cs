@@ -14,12 +14,14 @@ namespace SeaBattle.Service
         private UnitOfWork()
         {
             _seaBattleContext = new SeaBattleContext();
+
         }
 
         private SeaBattleContext _seaBattleContext;
         private UserService _userService;
         private MailService _mailService;
         private BattlefieldService _battlefielldService;
+
 
         public static UnitOfWork Instance => _instance ?? (_instance = new UnitOfWork());
 

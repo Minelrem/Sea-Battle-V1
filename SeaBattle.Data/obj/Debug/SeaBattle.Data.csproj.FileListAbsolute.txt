@@ -14,6 +14,7 @@ C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Data\bin\Debug\EntityFramework
 C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Data\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Data\bin\Debug\EntityFramework.xml
 C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Data\obj\Debug\SeaBattle.Data.csprojResolveAssemblyReference.cache
 C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Data\obj\Debug\SeaBattle.Data.Migrations.InitialCreate.resources
 C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Data\obj\Debug\SeaBattle.Data.Migrations.AccountActivationColumn.resources
 C:\Users\User\Desktop\SeaBattle\Current\SeaBattle.Data\obj\Debug\SeaBattle.Data.csproj.GenerateResource.Cache

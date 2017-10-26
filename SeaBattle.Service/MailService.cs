@@ -27,7 +27,7 @@ namespace SeaBattle.Service
             messge.Subject = "SeaBattle Acount registration";
 
             SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-            smtp.Credentials = new NetworkCredential("millenium.minelrem@gmail.com", "1998validate");
+            smtp.Credentials = new NetworkCredential("millenium.minelrem@gmail.com", "*******");
             smtp.EnableSsl = true;
 
             await smtp.SendMailAsync(messge);
