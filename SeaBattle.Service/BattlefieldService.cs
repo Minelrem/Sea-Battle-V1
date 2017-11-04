@@ -3,8 +3,7 @@ using SeaBattle.Data.Context;
 using SeaBattle.Data.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Linq; 
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
@@ -22,7 +21,7 @@ namespace SeaBattle.Service
 
             public ShipsInstance(int singleDecknum = 4, int doubleDecknum = 3, int tripleDecknum = 2, int quatroDecknum = 1)
             {
-                _singleDeck = singleDecknum; _doubleDeck = doubleDecknum; _tripleDeck = tripleDecknum; _quatroDeck = tripleDecknum;
+                _singleDeck = singleDecknum; _doubleDeck = doubleDecknum; _tripleDeck = tripleDecknum; _quatroDeck = quatroDecknum;
             }
             
             public bool OnShipCreated(int deckNum)
@@ -32,26 +31,42 @@ namespace SeaBattle.Service
                     case 1:
                         {
                             if (_singleDeck > 0)
+                            {
                                 _singleDeck--;
-                            return true;
+                                return true;
+                            }
+                            else
+                                return false;
                         }
                     case 2:
                         {
                             if (_doubleDeck > 0)
+                            {
                                 _doubleDeck--;
-                            return true;
+                                return true;
+                            }
+                            else
+                                return false;
                         }
                     case 3:
                         {
                             if (_tripleDeck > 0)
+                            {
                                 _tripleDeck--;
-                            return true;
+                                return true;
+                            }
+                            else
+                                return false;
                         }
                     case 4:
                         {
                             if (_quatroDeck > 0)
+                            {
                                 _quatroDeck--;
-                            return true;
+                                return true;
+                            }
+                            else
+                                return false;
                         }
                     default: return false;
                 }
@@ -64,7 +79,7 @@ namespace SeaBattle.Service
 
         public BattlefieldService(SeaBattleContext context) : base(context)
         {
-            _shipInstance = _shipInstance?? new ShipsInstance();
+            _shipInstance = _shipInstance ?? new ShipsInstance();
         }
 
         public async void SaveToXML(List<Tuple<int, int, int>> tmp, int size)

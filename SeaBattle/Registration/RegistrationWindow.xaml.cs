@@ -26,12 +26,12 @@ namespace SeaBattle.Registration
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
             if (passTbt.Password == confpassTbt.Password)
             {
 
-                var res = UnitOfWork.Instance.UserService.AddUser(new UserModel
+                var res = await UnitOfWork.Instance.UserService.AddUser(new UserModel
                 {
                     Email = mailTbt.Text,
                     Login = loginTbt.Text,
@@ -48,7 +48,7 @@ namespace SeaBattle.Registration
                 }
                 else
                 {
-                    //UnitOfWork.Instance.MailService.SendMail(mailTbt.Text);
+                    //UnitOfWork.Instance.MailService.SendMail(mailTbt.Text); //sends email about registration confirmation
                     Close();
                 }
             }

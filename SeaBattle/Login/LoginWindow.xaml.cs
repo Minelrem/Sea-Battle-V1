@@ -33,9 +33,9 @@ namespace SeaBattle.Login
             _isSucces = false;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (UnitOfWork.Instance.UserService.VerifyUser(mailTbt.Text,passTbt.Password).Result!=null)
+            if ( await UnitOfWork.Instance.UserService.VerifyUser(mailTbt.Text,passTbt.Password)!=null)
             {
                 _isSucces = true;
                 Close();                                

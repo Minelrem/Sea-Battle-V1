@@ -19,24 +19,12 @@ namespace SeaBattle.Controls.ShipUnitControl
     /// Interaction logic for Ship.xaml
     /// </summary>
     public partial class ShipUnit : Cell
-    {  
-        public ShipUnit(Cell  cell):base(cell._field,cell.X,cell.Y) 
+    {
+        public ShipUnit(Cell cell) : base(cell._field, cell.X, cell.Y)
         {
             InitializeComponent();
-           
-            State = CellState.Ship;
-
-            Margin = cell.Margin;
+            
         }
-
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-             
-        }
-
-        private void Create()
-        {
-             
-        }
+        
     }
 }

@@ -1,12 +1,7 @@
 ﻿using SeaBattle.Api.Model.Model;
 using SeaBattle.Data.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SeaBattle.Service 
+namespace SeaBattle.Service
 {
     public class Mapper 
     {

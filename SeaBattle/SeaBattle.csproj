@@ -153,6 +153,23 @@
       <Name>SeaBattle.Service</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\None.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\1H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\2H.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\3H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\4H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\X.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

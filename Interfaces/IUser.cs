@@ -10,7 +10,7 @@ namespace Interfaces
     public interface IUser
     {
         UserModel CurrUser { get;}
-        bool AddUser(UserModel user);
+        Task<bool> AddUser(UserModel user);
         Task<UserModel> VerifyUser(string email, string password);
 
     }

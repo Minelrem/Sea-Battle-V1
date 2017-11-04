@@ -1,9 +1,5 @@
 ﻿using Interfaces;
 using SeaBattle.Data.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using SeaBattle.Api.Model.Model;
 using System.Data.Entity;
@@ -23,10 +19,10 @@ namespace SeaBattle.Service
 
         }
 
-        public bool AddUser(UserModel user)
+        public async  Task<bool> AddUser(UserModel user)
         {
-            var isUnique =   _context.UserAccounts.FirstOrDefaultAsync(u => u.Email == user.Email);
-            if (isUnique.Result != null)
+            var isUnique =  await _context.UserAccounts.FirstOrDefaultAsync(u => u.Email == user.Email);
+            if (isUnique != null)
                 return false;
 
 
@@ -44,13 +40,13 @@ namespace SeaBattle.Service
             };
 
             _context.UserAccounts.Add(userAcc);
-             _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
-            var acc = _context.UserAccounts.FirstOrDefaultAsync(u => u.Email == user.Email);
+            var acc = await _context.UserAccounts.FirstOrDefaultAsync(u => u.Email == user.Email);
 
             var newUser = new User
             {
-                UserAccountId = acc.Result.Id,
+                UserAccountId = acc.Id,
                 Login = user.Login,
                 LastName = user.Name,
                 FirstName = user.Name,
@@ -58,7 +54,7 @@ namespace SeaBattle.Service
             };
             
             _context.Users.Add(newUser);
-            _context.SaveChanges();
+           await _context.SaveChangesAsync();
 
             return true;
 
@@ -66,9 +62,9 @@ namespace SeaBattle.Service
 
         public async Task<UserModel> VerifyUser(string email, string password)
         {
-            var acc = _context.UserAccounts.FirstOrDefaultAsync(u => u.Email == email).Result;
+            var acc =  _context.UserAccounts.FirstOrDefaultAsync(u => u.Email == email).Result;
 
-            var user = _context.Users.FirstOrDefaultAsync(u => u.UserAccountId == acc.Id).Result;
+            var user =   _context.Users.FirstOrDefaultAsync(u => u.UserAccountId == acc.Id).Result;
 
             if (acc == null || user == null)
                 return null;

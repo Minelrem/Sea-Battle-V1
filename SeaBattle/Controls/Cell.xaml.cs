@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace SeaBattle.Controls
 {
@@ -29,16 +31,19 @@ namespace SeaBattle.Controls
 
         private void Grid_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (!_field.IsEnemy)   return; 
-            
+            //if (!_field.IsEnemy)   return; 
+
             MyGrid.Background = Brushes.Aqua;
+
+         
         }
 
         private void MyGrid_OnMouseLeave(object sender, MouseEventArgs e)
         {
-            if (!_field.IsEnemy) return;
+           // if (!_field.IsEnemy) return;
 
-            if (_field.isActive)
+            
+            if (_field.isActive && State != CellState.Ship)
                 State = CellState.Choosen;
 
             MyGrid.Background = GetColor();
@@ -46,15 +51,22 @@ namespace SeaBattle.Controls
 
         private void MyGrid_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            
-            if (!_field.IsEnemy) return;
+
+            // if (!_field.IsEnemy) return; will be turned of when game mod on
 
             if (_state == CellState.Ship)
                 _state = CellState.Damage;
             else if (_state != CellState.Damage)
                 _state = CellState.Missed;
 
+            _field.killed += _field_killed;
+
             MyGrid.Background = GetColor();
+        }
+
+        private void _field_killed(string mess)
+        {
+            MessageBox.Show("HH");
         }
 
         public void SetBackground()
@@ -62,29 +74,38 @@ namespace SeaBattle.Controls
             MyGrid.Background = GetColor();
         }
 
-        private Brush GetColor()
+        private ImageBrush GetColor()
         {
             switch (_state)
             {
                 case CellState.Damage:
-                    return Brushes.Red;
+                    {
+                        ImageSource source =  new BitmapImage(new Uri("Resources/X.png", UriKind.Relative));
+                        return new ImageBrush(source);
+                    }
                 case CellState.Missed:
-                    return Brushes.Green;
+                    {
+                        ImageSource source = new BitmapImage(new Uri("Resources/Missed.png", UriKind.Relative));
+                        return new ImageBrush(source);
+                    }
                 case CellState.None:
-                    return Brushes.Blue;
-                case CellState.Ship:
-                    return Brushes.Blue;
+                    {
+                        {
+                            ImageSource source = new BitmapImage(new Uri("Resources/None.png", UriKind.Relative));
+                            return new ImageBrush(source);
+                        }
+                    }
+                //case CellState.Ship:
+                //    return Background;
                 case CellState.Choosen:
-                    return Brushes.Goldenrod;
-                default:
-                    return Brushes.Blue;
+                    {
+                        ImageSource source = new BitmapImage(new Uri("Resources/Choosen.png", UriKind.Relative));
+                        return new ImageBrush(source);
+                    }
+                default:return null;
             }
         }
 
-        private void UserControl_MouseEnter(object sender, MouseEventArgs e)
-        {
-
-        }
     }
 
     public enum CellState
