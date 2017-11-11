@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Base\Base.cs" />
     <Compile Include="BattlefieldService.cs" />
+    <Compile Include="GameService.cs" />
     <Compile Include="MailService.cs" />
     <Compile Include="Mapping\Mapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

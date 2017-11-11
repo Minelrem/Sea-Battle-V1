@@ -1,8 +1,10 @@
 ﻿using SeaBattle.Controls.ShipUnitControl;
 using SeaBattle.Service;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using SeaBattle;
 
 namespace SeaBattle.Controls
 {
@@ -20,7 +22,6 @@ namespace SeaBattle.Controls
         public delegate void onKill(string mess);
 
         public event onKill killed;
-
 
         public static readonly DependencyProperty EnemyDependencyProperty = DependencyProperty.Register("IsEnemy", typeof(bool), typeof(Field));
 
@@ -60,7 +61,7 @@ namespace SeaBattle.Controls
         }
 
         private void BuildFiled()
-        { 
+        {
 
             _cells = new Cell[_size, _size];
 
@@ -109,7 +110,7 @@ namespace SeaBattle.Controls
             }
         }
 
-       
+
 
         private void BuildGrid()
         {
@@ -131,12 +132,17 @@ namespace SeaBattle.Controls
 
         private void Grid_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            if (Name == "UserField")
+            if (!IsEnemy)
             {
-                killed.Invoke("some");
+                return;
+            }
+            else if (UnitOfWork.Instance.GameService.GameState)
+            {
+                
 
                 return;
             }
+
 
             foreach (Cell cell in Cells)
             {
@@ -316,7 +322,77 @@ namespace SeaBattle.Controls
                     }
             }
         }
- 
+
+        public void LoadField()
+        {
+            ClearField();
+
+            choosen = new List<Cell>();
+
+            var res = UnitOfWork.Instance.BattlefieldService.LoadFromXML().Result;
+
+            List<Cell> shipCells = new List<Cell>();
+
+            foreach (Tuple<int, int, int> tmp in res)
+            {
+                var cell = _cells[tmp.Item2, tmp.Item1];
+                (cell.X) = tmp.Item1 + 1;
+                cell.Y = tmp.Item2 + 1;
+                cell.State = (CellState)tmp.Item3;
+                if (cell.State == CellState.Ship)
+                {
+                    shipCells.Add(cell);
+                   
+                }
+            }
+            ChekLoadCell(shipCells);
+            RefreshField();
+        }
+
+        void ChekLoadCell(List<Cell> cells)
+        {
+
+            List<Cell> tmpList = new List<Cell>();
+
+
+           a: foreach(Cell cell in cells.ToArray())
+            {
+                foreach (Cell tmpCell in tmpList)
+                {
+                    if (cell == tmpCell)
+                    {
+                        cells.Remove(cell);
+                        goto a;
+                    }
+                }
+               
+                    choosen.Add(cell);
+                tmpList.Add(cell);
+               // cells.Remove(cell);
+                foreach (Cell seclvl in cells.ToArray())
+                {
+                    Cell tmp = choosen[choosen.Count - 1];
+                    
+                    if ((tmp.X + 1 == seclvl.X && tmp.Y == seclvl.Y || tmp.Y + 1 == seclvl.Y && tmp.X == seclvl.X || tmp.X - 1 == seclvl.X && tmp.Y == seclvl.Y || tmp.Y - 1 == seclvl.Y && tmp.X == seclvl.X))
+                    {
+                        tmpList.Add(seclvl);
+                        choosen.Add(seclvl); 
+                    }
+
+                }
+                ShipInstance ship = new ShipInstance(choosen);
+                Ships.Add(ship);
+                choosen.Clear();
+               
+
+            }            
+        }
+
+        public void ClearField()
+        {
+            Ships.Clear();
+            RefreshField();
+        }
 
     }
 }

@@ -20,7 +20,7 @@
         </Grid.ColumnDefinitions>
         <Label TextBlock.FontSize="20" Margin="5,5,5,5" Padding="40,20">E-mail:</Label>
         <Label Grid.Row="1" TextBlock.FontSize="20" Margin="5,5,5,5" Padding="30,20">Password:</Label>
-        <TextBox Grid.Column="1"  Name="mailTbt" Padding="10" FontSize="20" BorderThickness="1" Margin="10"> </TextBox>
+        <TextBox Grid.Column="1"  Name="mailTbt" Padding="10" FontSize="20" BorderThickness="1" Margin="10">MainAdmin</TextBox>
         <PasswordBox Grid.Column="1" PasswordChar="*" Grid.Row="1" FontSize="20" Padding="10" BorderThickness="1" Name="passTbt" Margin="10"></PasswordBox>
         <Button Grid.Row="2" Grid.Column="0" Content="Registration" Background="IndianRed" FontFamily="Arial" FontSize="18px" TextBlock.Foreground="DarkOrange" Margin="10,5,37,5"  Click="Button_Click_1"/>
         <Button Grid.Row="2" Content="Login" FontFamily="Arial" FontSize="22px" Background="Firebrick" TextBlock.Foreground="Chocolate" Grid.Column="1" Click="Button_Click" Margin="47,6,10,9" RenderTransformOrigin="0.511,0.548"/>

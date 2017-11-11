@@ -8,7 +8,7 @@
     <Grid Name="MyGrid" MouseEnter="Grid_MouseEnter" MouseLeave="MyGrid_OnMouseLeave" MouseDown="MyGrid_MouseDown"  >
 
         <Grid.Background>
-            <ImageBrush ImageSource="/Resources/None.png" Stretch="UniformToFill" ></ImageBrush>
+            <ImageBrush ImageSource="/Resources/none.png" Stretch="UniformToFill" ></ImageBrush>
         </Grid.Background>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25"/>
     </Grid>

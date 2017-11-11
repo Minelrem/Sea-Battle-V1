@@ -8,16 +8,17 @@ using SeaBattle.Login;
 
 namespace SeaBattle
 {
+    
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        
         public MainWindow()
         {
             InitializeComponent();
-            
+
         }
 
         private void LoginForm_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -25,6 +26,7 @@ namespace SeaBattle
             if (!((LoginWindow)sender).IsSucces)
                 Close();
 
+            UnitOfWork.Instance.GameService.GameState = false; 
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -46,30 +48,24 @@ namespace SeaBattle
 
                     y = (cell.Y - 1);
 
-                    state = (cell.State == CellState.Missed ? (int)CellState.Ship : (int)CellState.None);
+                    state = (cell.State == CellState.Ship ? (int)CellState.Ship : (int)CellState.None);
 
                     tmp.Add(Tuple.Create(x, y, state));
                 }
 
             }
 
+            EnemyField.ClearField();
+
 
             UnitOfWork.Instance.BattlefieldService.SaveToXML(tmp, size);
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private async void button1_Click(object sender, RoutedEventArgs e)
         {
+            UnitOfWork.Instance.GameService.GameState = true;
 
-            var res = UnitOfWork.Instance.BattlefieldService.LoadFromXML().Result;
-
-            foreach (Tuple<int, int, int> tmp in res)
-            {
-
-                var cell = UserField[tmp.Item2, tmp.Item1];
-                cell.X = tmp.Item1;
-                cell.Y = tmp.Item2;
-                cell.State = (CellState)tmp.Item3;
-            }
+            UserField.LoadField();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -83,10 +79,31 @@ namespace SeaBattle
 
         }
 
-      
+
         private void RefreshShipArea()
         {
             System.Windows.MessageBox.Show("Created");
         }
+
+        private async void button1_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            
+            UnitOfWork.Instance.GameService.GameState = true;
+
+            EnemyField.ClearField();
+
+            var res = await UnitOfWork.Instance.BattlefieldService.LoadFromXML();
+
+            foreach (Tuple<int, int, int> tmp in res)
+            {
+
+                var cell = EnemyField[tmp.Item2, tmp.Item1];
+                cell.X = tmp.Item1;
+                cell.Y = tmp.Item2;
+                cell.State = (CellState)tmp.Item3;
+            }
+
+        }
     }
+   
 }

@@ -119,13 +119,13 @@ namespace SeaBattle.Service
 
             List<Tuple<int, int, int>> tmp = new List<Tuple<int, int, int>>();
 
-            var field = _context.Battlefields.Where(t => t.Id > 1).ToList();
+            var field = _context.Battlefields.Where(t => t.Id > 0).ToList();
 
             if (field.Count == 0)
                 return null;
 
             var doc = new XmlDocument();
-            doc.LoadXml(field[0].placement);
+            doc.LoadXml(field[3].placement);
 
             var root = doc.DocumentElement;
             var list = root.GetElementsByTagName("cell");

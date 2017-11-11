@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SeaBattle.Service;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -31,7 +32,7 @@ namespace SeaBattle.Controls
 
         private void Grid_MouseEnter(object sender, MouseEventArgs e)
         {
-            //if (!_field.IsEnemy)   return; 
+            if (!_field.IsEnemy)   return; 
 
             MyGrid.Background = Brushes.Aqua;
 
@@ -40,7 +41,7 @@ namespace SeaBattle.Controls
 
         private void MyGrid_OnMouseLeave(object sender, MouseEventArgs e)
         {
-           // if (!_field.IsEnemy) return;
+            if (!_field.IsEnemy) return;
 
             
             if (_field.isActive && State != CellState.Ship)
@@ -52,11 +53,11 @@ namespace SeaBattle.Controls
         private void MyGrid_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
-            // if (!_field.IsEnemy) return; will be turned of when game mod on
+            if (!_field.IsEnemy) return;  
 
-            if (_state == CellState.Ship)
+            if (_state == CellState.Ship && UnitOfWork.Instance.GameService.GameState)
                 _state = CellState.Damage;
-            else if (_state != CellState.Damage)
+            else if (_state != CellState.Damage&&_state!=CellState.Ship)
                 _state = CellState.Missed;
 
             _field.killed += _field_killed;

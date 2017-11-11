@@ -23,7 +23,7 @@ namespace SeaBattle.Controls.ShipUnitControl
         public ShipUnit(Cell cell) : base(cell._field, cell.X, cell.Y)
         {
             InitializeComponent();
-            
+           
         }
         
     }
